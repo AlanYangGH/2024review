@@ -491,7 +491,7 @@ h2 {
 
     .header-content {
         height: auto;
-        padding: 2rem 0;
+        padding: 2rem 1rem;
         position: relative;
         z-index: 2;
     }
@@ -623,7 +623,7 @@ h2 {
     .plan-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
-        margin: 1.5rem 1rem;
+        margin: 0;
         padding: 0;
     }
 
@@ -631,6 +631,7 @@ h2 {
         padding: 1.5rem;
         margin-top: 0;
         background: rgba(255, 255, 255, 0.9);
+        margin: 1rem;
     }
 
     /* 经验总结响应式 */
@@ -721,6 +722,7 @@ h2 {
     section {
         padding: 2rem 0;
         margin-bottom: 2rem;
+        border-radius: 0;
     }
 
     h2 {
