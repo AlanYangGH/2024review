@@ -111,17 +111,17 @@ h2 {
 /* 统计数据样式 */
 .stats-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2rem;
     margin: 3rem 0;
 }
 
 .stat-item {
-    background-color: white;
+    background: rgba(255, 255, 255, 0.9);
     padding: 2rem;
     border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease;
 }
 
@@ -130,16 +130,17 @@ h2 {
 }
 
 .stat-item .number {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: bold;
-    color: var(--accent-color);
-    display: block;
-    margin-bottom: 0.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+    line-height: 1;
 }
 
 .stat-item .label {
-    color: var(--text-color);
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    color: #666;
+    line-height: 1.4;
 }
 
 /* 时间线样式 */
@@ -330,6 +331,39 @@ h2 {
     font-weight: bold;
 }
 
+/* 工作详情样式 */
+.work-details {
+    margin: 2rem 0;
+}
+
+.detail-item {
+    margin-bottom: 2rem;
+}
+
+.detail-item h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.detail-item ul {
+    list-style: none;
+    padding: 0;
+}
+
+.detail-item ul li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.detail-item ul li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+}
+
 /* 页脚样式 */
 .hero-footer {
     min-height: 800px;
@@ -440,26 +474,298 @@ h2 {
     }
 }
 
-/* 响应式设计 */
-@media (max-width: 768px) {
+/* 移动端响应式样式 */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 0;
+    }
+
+    /* 头部响应式 */
+    .hero-header {
+        background-size: 70% auto;
+        padding: 1.5rem;
+        min-height: auto;
+        background-position: right 90%;
+        position: relative;
+    }
+
     .header-content {
-        flex-direction: column;
-        text-align: center;
+        height: auto;
+        padding: 2rem 0;
+        position: relative;
+        z-index: 2;
     }
 
-    h1 {
-        font-size: 3rem;
+    .header-text h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        z-index: 2;
     }
 
+    .header-tag {
+        font-size: 1rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    .header-subtitle {
+        font-size: 0.9rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    .header-info {
+        padding: 1rem 0;
+        position: relative;
+        z-index: 2;
+    }
+
+    /* 统计数据响应式 */
     .stats-container {
         grid-template-columns: 1fr;
+        gap: 1rem;
+        margin: 1.5rem;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 1.5rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .stat-item {
+        padding: 1.5rem;
+        margin: 0.5rem 0;
+        background: #f8f8f8;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .stat-item .number {
+        font-size: 2.5rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .stat-item .label {
+        font-size: 1rem;
+    }
+
+    /* 时间线响应式 */
+    .timeline-container {
+        padding: 0 1rem;
+        margin: 1rem 0;
+        min-height: auto;
+        position: relative;
+    }
+
+    .timeline {
+        width: 100%;
+        position: relative;
+        z-index: 2;
+    }
+
+    .timeline-item {
+        margin-bottom: 1.2rem;
+        padding-left: 1rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    .timeline-item .date {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+        min-width: auto;
+        width: 100%;
+    }
+
+    .timeline-item .content {
+        display: block;
+        max-width: 100%;
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 8px;
+    }
+
+    /* 项目列表响应式 */
+    .project-container {
+        padding: 0 1rem;
+        position: relative;
+        overflow: hidden;
     }
 
     .project-list {
         grid-template-columns: 1fr;
+        margin: 1rem 0;
+        gap: 1rem;
+        position: relative;
+        z-index: 2;
     }
 
+    .project-list li {
+        padding: 1rem;
+        font-size: 0.9rem;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 8px;
+    }
+
+    .mascot-background {
+        width: 180px;
+        height: 250px;
+        right: -20px;
+        bottom: -30px;
+        opacity: 0.15;
+        transform: scale(0.8);
+    }
+
+    /* 工作计划响应式 */
+    .plan-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin: 1.5rem 1rem;
+        padding: 0;
+    }
+
+    .plan-card {
+        padding: 1.5rem;
+        margin-top: 0;
+        background: rgba(255, 255, 255, 0.9);
+    }
+
+    /* 经验总结响应式 */
     .experience-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin: 1.5rem 1rem;
+    }
+
+    .experience-card {
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.9);
+    }
+
+    /* 工作详情响应式 */
+    .work-details {
+        margin: 1.5rem;
+    }
+
+    .detail-item {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .detail-item h4 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--background-color);
+    }
+
+    .detail-item ul li {
+        background: #f8f8f8;
+        margin-bottom: 0.8rem;
+        padding: 1rem 1rem 1rem 2rem;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .detail-item ul li:before {
+        left: 0.8rem;
+        top: 1rem;
+    }
+
+    /* 页脚响应式 */
+    .hero-footer {
+        min-height: auto;
+        padding: 1.5rem;
+        background-size: 65% auto;
+        background-position: right 40%;
+        position: relative;
+    }
+
+    .footer-content {
+        height: auto;
+        padding: 2rem 0;
+        position: relative;
+        z-index: 2;
+    }
+
+    .footer-text h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    .footer-tag {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    .footer-subtitle {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    /* 通用样式调整 */
+    section {
+        padding: 2rem 0;
+        margin-bottom: 2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+        margin: 0 1rem 1.2rem;
+    }
+
+    h3 {
+        font-size: 1.4rem;
+        margin: 0 1rem 1rem;
+    }
+
+    .section-subtitle {
+        font-size: 1.4rem;
+        margin: 2rem 1rem 1.2rem;
+        padding-left: 0.8rem;
+    }
+}
+
+/* 小型手机屏幕 */
+@media screen and (max-width: 375px) {
+    .hero-header {
+        background-size: 70% auto;
+    }
+
+    .hero-footer {
+        background-size: 60% auto;
+    }
+
+    .header-text h1,
+    .footer-text h1 {
+        font-size: 2.2rem;
+    }
+
+    .mascot-background {
+        width: 150px;
+        height: 200px;
+        transform: scale(0.7);
+    }
+
+    .timeline-item .date,
+    .timeline-item .content,
+    .plan-card ul li,
+    .experience-card ul li,
+    .project-list li {
+        font-size: 0.85rem;
     }
 }
