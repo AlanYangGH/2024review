@@ -1,0 +1,465 @@
+/* 全局样式 */
+:root {
+    --primary-color: #F7F6F2;
+    --secondary-color: #E8E7E3;
+    --text-color: #2C3639;
+    --spacing-unit: 20px;
+    --accent-color: #A27B5C;
+    --primary-color-old: #2c3e50;
+    --secondary-color-old: #3498db;
+    --background-color: #f5f6fa;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-unit);
+}
+
+/* 头部样式 */
+.hero-header {
+    min-height: 100vh;
+    background: url('./assets/背景图片1.png') no-repeat center center;
+    background-size: 88% auto;
+    position: relative;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80vh;
+}
+
+.header-tag {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+}
+
+h1 {
+    font-size: 4rem;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+    background-size: 200% auto;
+    animation: gradientText 6s linear infinite;
+}
+
+.header-subtitle {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header-visual {
+    flex: 1;
+    position: relative;
+}
+
+.header-visual img.character {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 主要内容样式 */
+main {
+    background-color: var(--primary-color);
+    padding: 4rem 0;
+}
+
+section {
+    margin-bottom: 6rem;
+    padding: 3rem;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.section-subtitle {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    padding-left: 1rem;
+    border-left: 4px solid var(--accent-color);
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+    text-align: center;
+}
+
+/* 统计数据样式 */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.stat-item {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+}
+
+.stat-item .number {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.stat-item .label {
+    color: var(--text-color);
+    font-size: 1.1rem;
+}
+
+/* 时间线样式 */
+.timeline-container {
+    position: relative;
+    margin: 2rem 0;
+    padding-left: 2rem;
+    min-height: 600px;
+}
+
+.timeline {
+    position: relative;
+    width: 70%;
+    z-index: 2;
+}
+
+.mascot-background {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 400px;
+    height: 600px;
+    background: url('./assets/吉祥物.png') no-repeat right bottom;
+    background-size: contain;
+    opacity: 0.8;
+    z-index: 1;
+}
+
+.timeline-item {
+    margin-bottom: 2rem;
+    padding-left: 1rem;
+    position: relative;
+    animation: slideIn 0.5s ease-out forwards;
+    animation-delay: calc(var(--delay) * 0.1s);
+    opacity: 0;
+}
+
+.timeline-item .date {
+    display: inline-block;
+    padding: 0.5rem 1.2rem;
+    background: var(--accent-color);
+    color: white;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    margin-right: 1rem;
+    min-width: 140px;
+    text-align: center;
+    line-height: 1.4;
+    flex-shrink: 0;
+}
+
+.timeline-item .content {
+    display: inline-block;
+    padding: 0.5rem 1.2rem;
+    background-color: white;
+    color: var(--text-color);
+    border-radius: 4px;
+    line-height: 1.4;
+    font-size: 1.1rem;
+    width: auto;
+    max-width: calc(100% - 160px);
+}
+
+/* 项目列表样式 */
+.project-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+    margin-left: 2rem;
+}
+
+.project-list li {
+    background-color: white;
+    color: var(--text-color);
+    padding: 1rem;
+    border-radius: 10px;
+    animation: fadeIn 0.5s ease-out forwards;
+    animation-delay: calc(var(--delay) * 0.1s);
+    opacity: 0;
+    transition: transform 0.3s ease;
+}
+
+.project-list li:hover {
+    transform: translateY(-5px);
+}
+
+/* 经验卡片样式 */
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.experience-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.experience-card:hover {
+    transform: translateY(-5px);
+}
+
+.experience-card h3 {
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.experience-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.experience-card ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.experience-card ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* 工作计划样式 */
+.work-plan {
+    background-color: white;
+}
+
+.plan-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin: 3rem 1.5rem;
+    padding: 0 1rem;
+}
+
+.plan-card {
+    background-color: var(--primary-color);
+    padding: 2.5rem;
+    margin-top: 50px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.plan-card:hover {
+    transform: translateY(-5px);
+}
+
+.plan-card h3 {
+    color: var(--accent-color);
+    margin-bottom: 2rem;
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.plan-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.plan-card ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 1.2rem;
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.plan-card ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* 页脚样式 */
+.hero-footer {
+    min-height: 800px;
+    background: url('./assets/吉祥物2.png') no-repeat center center;
+    background-size: 45% auto;
+    position: relative;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--text-color);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 600px;
+    padding-top: 4rem;
+}
+
+.footer-text {
+    max-width: 600px;
+}
+
+.footer-tag {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.footer-text h1 {
+    font-size: 4rem;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+}
+
+.footer-subtitle {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-subtitle .tag {
+    font-size: 1rem;
+    color: var(--accent-color);
+    font-weight: 500;
+}
+
+.footer-subtitle .text {
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+.footer-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.footer-info .info-left {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.footer-info .info-right {
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+/* 动画 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes gradientText {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
+
+    .project-list {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
+}
